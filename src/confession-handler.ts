@@ -293,7 +293,7 @@ export const confess = async (btn: ButtonInteraction) => {
 
     const current = Date.now();
     
-    if(!(current>created + 0)){
+    if(!(current>created + 21600000)){
         const nextTime = created + 21600000 + "";
         const embed = new EmbedBuilder()
         .setTitle("Whoa! Relax")
