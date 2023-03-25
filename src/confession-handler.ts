@@ -297,7 +297,7 @@ export const confess = async (btn: ButtonInteraction) => {
         const nextTime = created + 21600000 + "";
         const embed = new EmbedBuilder()
         .setTitle("Whoa! Relax")
-        .setDescription(`**you can confess again in <t:${nextTime.slice(0, nextTime.length - 3)}:R>**`)
+        .setDescription(`**you can confess again <t:${nextTime.slice(0, nextTime.length - 3)}:R>**`)
         .setColor('White');
 
     dm.send({embeds: [embed]});
