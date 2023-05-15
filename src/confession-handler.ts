@@ -20,7 +20,7 @@ export const sendConfession = async (msg: string) => {
 
     const embed = new EmbedBuilder()
         .setTitle("Secret confession")
-        .setDescription("```" + replaceSentences(msg) + "```")
+        .setDescription(  replaceSentences(msg)  )
         .setColor(analyzeMood(msg) as ColorResolvable);
 
     return await channel.send({embeds: [embed]});
