@@ -20,7 +20,7 @@ export const sendConfession = async (msg: string) => {
 
     const embed = new EmbedBuilder()
         .setTitle("Secret confession")
-        .setDescription("```" + replaceSentences(replaceWords(msg)) + "```")
+        .setDescription("```" + replaceSentences(msg) + "```")
         .setColor(analyzeMood(msg) as ColorResolvable);
 
     return await channel.send({embeds: [embed]});
@@ -388,19 +388,11 @@ export const replaceWords = (message: string): string => {
   };
   
   export const replaceSentences = (message: string): string => {
-    const regex = /\|\|([^|]+)\|\|/g;
-    let match = regex.exec(message);
-  
-    while (match !== null) {
-      const sentence = match[1];
-      const numHashes = sentence.length - 1;
-      const hashes = '# '.repeat(numHashes).trim();
-      const visibleWord = sentence.split(' ')[0];
-      message = message.replace(match[0], `${visibleWord[0]}${hashes}`);
-      match = regex.exec(message);
+    if(message.includes('||')){
+        return message;
+    }else{
+        return '```' + message + '```'
     }
-  
-    return message;
   };
   
   
